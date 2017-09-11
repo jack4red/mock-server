@@ -1,4 +1,5 @@
 const path = require('path');
+const watchMockjs = require('./watchMock.js');
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -9,10 +10,7 @@ module.exports = {
         contentBase: './dist',
         hot: true,
         setup(app){
-            require('fs').readdirSync(require('path').join(__dirname + '/mock')).forEach(function(file) {
-                let mockFun = require('./mock/' + file);
-                mockFun(app);
-            })
+            watchMockjs(app);
         }
     }
 };

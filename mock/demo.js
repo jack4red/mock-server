@@ -3,9 +3,10 @@
 const mockjs = require('mockjs');
 
 module.exports = (app) => {
+    console.log('sss');
     app.get('/test',function(req, res) {
         var data = mockjs.mock({
-            'current':1,
+            'current':1111,
             'total|400':1,
             'data|4':[
                 {
